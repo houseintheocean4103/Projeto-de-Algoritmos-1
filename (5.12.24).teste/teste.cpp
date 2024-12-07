@@ -14,7 +14,7 @@ int main () {
 			if (n%j==0)
 				cont++; //falta inicializar 'cont'
 		}
-		if (cont != 0) {
+		if (cont != 0) { //'cont' deve ser igual a '0' para que o número seja primo
 			cout<<n<<endl;
 			temPrimo=true;
 		}
