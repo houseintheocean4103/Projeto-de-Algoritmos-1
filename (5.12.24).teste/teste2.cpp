@@ -35,7 +35,7 @@ int main () {
 			}
 		}	
 	}
-	if (not temPrimo)
-		cout<<-1<<"/nao ha primos";	
+	if (not temPrimo)			//caso 1: se pelo menos um número primo foi encontrado, temPrimo será true e o '!temPrimo' será 'false', e o bloco dentro do 'if' não será executado.
+		cout<<-1<<"/nao ha primos";	//caso 2: se nenhum número primo foi encontrado, 'temPrimo' será 'false'. O '!temPrimo' será 'true', e o programa imprimirá '-1'.
 	return 0;	
 }
