@@ -7,10 +7,10 @@ int main () {
 	for (i=0; i<10; i++)
 		cin>>vetA[i];
 	for (i=0; i<4; i++)
-		cin>>vetB[j];
-	for (i=0; i<10;i++) {
-		n=vetA[ vetB[i] ];
-		for (j=1;j<=n; j++) {
+		cin>>vetB[j];  //correção:variável de  controle mudada para 'i' para se adequar ao 'for'
+	for (i=0; i<10;i++) { //correção:fim(i<10) está fora do escopo de 'vetB' pois este tem tamanho '[4]'
+		n=vetA[ vetB[i] ]; //falta o caso do 'n = 1' e 'n = 2'
+		for (j=1;j<=n; j++) { //intervalo deve ser 'inicio(j=2)' e 'fim(j<n)' para que '1' e o próprio número 'n' não sejam divisores
 			if (n%j==0)
 				cont++;
 		}
@@ -23,5 +23,4 @@ int main () {
 		cout<<-1;	
 	return 0;	
 }
-
 
