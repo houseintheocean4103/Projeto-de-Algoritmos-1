@@ -12,7 +12,7 @@ int main () {
 		n=vetA[ vetB[i] ]; //falta o caso do 'n = 1' e 'n = 2'
 		for (j=1;j<=n; j++) { //intervalo deve ser 'inicio(j=2)' e 'fim(j<n)' para que '1' e o próprio número 'n' não sejam divisores
 			if (n%j==0)
-				cont++;
+				cont++; //falta inicializar 'cont'
 		}
 		if (cont != 0) {
 			cout<<n<<endl;
