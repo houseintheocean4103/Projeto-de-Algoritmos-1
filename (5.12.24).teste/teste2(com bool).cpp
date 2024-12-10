@@ -33,6 +33,9 @@ int main () {
 				cout<<n<<" e primo"<<endl;
 				temPrimo=true;
 			}
+			if (cont != 0) {
+                		cout<<n<<" nao e primo"<<endl;
+            		}
 		}	
 	}
 	if (not temPrimo)			//caso 1: se pelo menos um número primo foi encontrado, temPrimo será true e o '!temPrimo' será 'false', e o bloco dentro do 'if' não será executado.
