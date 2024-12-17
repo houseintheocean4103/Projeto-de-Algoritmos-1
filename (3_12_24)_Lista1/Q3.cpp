@@ -1,3 +1,5 @@
+//decompõe um valor em notas de real
+
 #include <iostream>
 
 using namespace std;
