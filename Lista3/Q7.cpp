@@ -13,16 +13,16 @@ int main(){
     for(i=0;i<8;i++){
         cin>>vet[i];
         if(vet[i] > 0){
-            pos[j] = vet[i];
-            j = j + 1;
-        }    
+            pos[j] = vet[i]; //variáveis independentes do loop principal
+            j = j + 1;       //para evitar um "out of range"
+        }                    //pois o vetor gerado sempre será menor que o original
         if(vet[i] < 0){ 
             neg[k] = vet[i];
             k = k + 1;
         }  
     }
     cout<<"Os positivos sao: "<<endl;
-    for(i=0;i<j;i++)    
+    for(i=0;i<j;i++)    //o tamanho é a variável independente
         cout<<pos[i]<<endl;
 
     cout<<"Os negativos sao: "<<endl;    
