@@ -1,3 +1,5 @@
+//tira a raiz quadrada de um vetor de 5 elementos
+
 #include <iostream>
 #include <cmath>
 
