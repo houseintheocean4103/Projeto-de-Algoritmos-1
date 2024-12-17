@@ -4,8 +4,8 @@
 using namespace std;
 
 string mplv(string a, string b){
-    if (sizeof(a) > sizeof(b))
-        return a;
+    if (sizeof(a) > sizeof(b)) //sizeof() utilizada somente para strings
+        return a;   
 
     return b;
 }
