@@ -7,7 +7,7 @@ int main(){
     string tab[8], nome;
     int i, pos;
 
-    for(i=0;i<8;i++)
+    for(i=0;i<8;i++) //vetores/listas semore tem que ser preenchidas manualmente
         tab[i] = "disponivel";
 
     pos = 0;
