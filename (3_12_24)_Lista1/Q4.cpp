@@ -1,3 +1,5 @@
+//media ponderada de 3 valores
+
 #include <iostream>
 
 using namespace std;
