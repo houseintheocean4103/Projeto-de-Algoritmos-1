@@ -1,3 +1,5 @@
+//tabuada com while
+
 #include <iostream>
 
 using namespace std;
