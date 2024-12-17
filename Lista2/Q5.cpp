@@ -1,3 +1,5 @@
+//soma contínua, contabiliza numeros negativos e positivos, mostra a porcentagem deles em relacao ao total
+
 #include <iostream>
 
 using namespace std;
