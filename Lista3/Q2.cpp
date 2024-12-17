@@ -1,4 +1,4 @@
-//faz calculos em relacao a um vetor
+//gera um vetor de 10 elementos, conta positivos, soma negativos, imprime de trás para frente os elementos
 
 #include <iostream>
 using namespace std;
