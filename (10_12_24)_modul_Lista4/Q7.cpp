@@ -6,8 +6,8 @@ using namespace std;
 string sufixo(string a, int n){
     int i;
     string b;
-            //começa em (tamanho - alcance)
-    for(i=(a.length() - n);i<a.length();i++)
+            //começa em (tamanho - alcance n da função)
+    for(i=(a.length() - n);i<a.length();i++) // a.length() devolvo tamanho da string
         b += a[i];              //termina em 'tamanho'
         //adiciona caracteres à palavra 'b'
     return b;
