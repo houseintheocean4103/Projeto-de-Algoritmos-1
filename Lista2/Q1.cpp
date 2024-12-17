@@ -1,3 +1,5 @@
+//decompõe os valores em fatores com prioridade
+
 #include <iostream>
 
 using namespace std;
