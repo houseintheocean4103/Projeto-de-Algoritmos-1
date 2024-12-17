@@ -6,8 +6,8 @@ using namespace std;
 int fatorial(int a){
     int i;
     
-    for(i = (a-1);i>0;i--)
-        a = a * i;
+    for(i = (a-1);i>0;i--) //loop reverso
+        a = a * i;         //multiplica elementos anteriores à 'a'
 
     return a;
 }
