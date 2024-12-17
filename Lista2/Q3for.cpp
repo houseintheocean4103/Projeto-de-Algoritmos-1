@@ -1,3 +1,5 @@
+//tabuada com for
+
 #include <iostream>
 
 using namespace std;
