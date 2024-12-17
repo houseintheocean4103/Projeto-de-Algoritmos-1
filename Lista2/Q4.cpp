@@ -1,3 +1,5 @@
+//soma todos os numeros menores que 1000 que sao multiiplos de 3 e 5
+
 #include <iostream>
 
 using namespace std;
