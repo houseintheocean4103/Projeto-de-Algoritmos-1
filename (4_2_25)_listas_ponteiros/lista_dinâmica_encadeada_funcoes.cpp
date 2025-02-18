@@ -1,5 +1,5 @@
 #include <iostream>
-#include "lista.hpp"
+#include "lde_lista.hpp" 
 using namespace std;
 
 void cria (Lista *L){
@@ -22,7 +22,7 @@ void inserirInicio(Lista *L, char info){
     }
 }
 void imprimir(Lista *L){
-    no* aux;
+    no *aux;
     aux=L->inicio;
     while (aux != NULL){
         cout<<aux->dado<<endl;
@@ -40,3 +40,51 @@ int tamanho(Lista *L){
     return cont;
 }
 
+void inserirPosicao(Lista *L, char info, char pos){
+
+    no *novo = new no;
+    novo->dado = info;
+   
+    no *aux;
+    int cont = 0;
+    aux=L->inicio;
+    while (cont != int(pos)){
+        cont++;
+        aux = aux->prox;
+    }
+    novo->prox=aux->prox; //não há necessidade de iterar pois as posições não estão em sequência
+    aux->prox = novo;     //
+}
+        
+int esta_na_lista(Lista *L, char info){
+    
+    no* aux;
+    int cont = 0;
+    aux=L->inicio;
+    while (aux != NULL){
+        cont++;
+        aux = aux->prox;
+    
+        if(aux->dado == info){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+ 
+void inserirFim(Lista *L, char info ){
+
+    no *novo = new no;
+    novo->dado = info;
+    
+    if (L->inicio == NULL){ //se lista vazia
+        novo->prox = NULL;
+        L->inicio = novo;
+        L->fim = novo;
+    } else {
+        novo->prox=L->fim; //?
+        L->fim=novo;
+    }
+}
+    
