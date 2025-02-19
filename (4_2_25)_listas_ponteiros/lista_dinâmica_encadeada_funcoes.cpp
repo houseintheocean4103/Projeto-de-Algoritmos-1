@@ -1,5 +1,5 @@
 #include <iostream>
-#include "lde_lista.hpp" 
+#include "lista.hpp" 
 using namespace std;
 
 void cria (Lista *L){
@@ -7,6 +7,33 @@ void cria (Lista *L){
     L->fim = NULL;
 }
 
+void imprimir(Lista *L){
+
+    no *aux;
+    aux=L->inicio;
+    while (aux != NULL){
+        cout<<aux->dado<<endl;
+        aux = aux->prox;
+    }
+}
+
+int tamanho(Lista *L){
+    no* aux;
+    int cont = 0;
+    aux=L->inicio;
+    while (aux != NULL){
+        cont++;
+        aux = aux->prox;
+    }
+    return cont;
+}
+
+bool estaVazia(Lista *L){
+    if(L->inicio==NULL)
+        return true; //1
+    return false; //0
+}
+         
 void inserirInicio(Lista *L, char info){
     //criar o nó
     no *novo = new no;
@@ -21,70 +48,81 @@ void inserirInicio(Lista *L, char info){
         L->inicio=novo;
     }
 }
-void imprimir(Lista *L){
-    no *aux;
-    aux=L->inicio;
-    while (aux != NULL){
-        cout<<aux->dado<<endl;
-        aux = aux->prox;
-    }
-}
-int tamanho(Lista *L){
-    no* aux;
-    int cont = 0;
-    aux=L->inicio;
-    while (aux != NULL){
-        cont++;
-        aux = aux->prox;
-    }
-    return cont;
-}
 
-void inserirPosicao(Lista *L, char info, char pos){
+void inserirFim(Lista *L, char info){
 
     no *novo = new no;
     novo->dado = info;
-   
-    no *aux;
-    int cont = 0;
-    aux=L->inicio;
-    while (cont != int(pos)){
-        cont++;
-        aux = aux->prox;
-    }
-    novo->prox=aux->prox; //não há necessidade de iterar pois as posições não estão em sequência
-    aux->prox = novo;     //
+
+    L->fim->prox=novo;
+    novo->prox=NULL;
 }
-        
-int esta_na_lista(Lista *L, char info){
-    
-    no* aux;
-    int cont = 0;
-    aux=L->inicio;
-    while (aux != NULL){
-        cont++;
-        aux = aux->prox;
-    
-        if(aux->dado == info){
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
- 
-void inserirFim(Lista *L, char info ){
+
+void inserirPosicao(Lista *L, char info, int pos){
 
     no *novo = new no;
-    novo->dado = info;
-    
-    if (L->inicio == NULL){ //se lista vazia
-        novo->prox = NULL;
-        L->inicio = novo;
-        L->fim = novo;
+    novo->dado=info;
+
+    if(pos == 0){
+        inserirInicio(L, info);
+    } else if(pos == tamanho(L) - 1){
+        inserirFim(L, info);
     } else {
-        novo->prox=L->fim; //?
-        L->fim=novo;
+
+        no *aux;
+        int cont = 0;
+
+        aux=L->inicio;
+
+        while(cont != pos){
+            aux=aux->prox;
+            cont++;
+        }
+        novo->prox=aux->prox;
+        aux->prox=novo;
     }
 }
+
+void removerInicio(Lista *L){
+
+    L->inicio = L->inicio->prox;
+
+}
+
+void removerFim(Lista *L){
+
     
+
+}
+
+void removerElemento(Lista *L, char info){
+
+    no *aux = L->inicio;
+    no *aux_ant;
+    
+    while(aux->dado != info){
+        aux_ant = aux;
+        aux = aux->prox;
+    }
+    cout<<aux_ant->dado<<endl;
+    cout<<aux->dado<<endl;
+
+    aux_ant->prox=aux->prox;
+    aux->prox=NULL;
+
+}
+
+void removerPosicao(Lista *L, int pos){
+    no *aux, *aux_ant;
+    int cont = 0;
+
+    aux=L->inicio;
+
+    while(cont != pos){
+        aux_ant = aux;
+        aux=aux->prox;
+        cont++;
+    }
+    aux_ant->prox=aux->prox;
+    aux->prox=NULL;
+}
