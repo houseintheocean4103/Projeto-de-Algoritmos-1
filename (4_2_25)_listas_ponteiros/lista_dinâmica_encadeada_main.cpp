@@ -8,8 +8,23 @@ int main (){
     inserirInicio(&minha_lista, 'A');
     inserirInicio(&minha_lista, 'B');
     inserirInicio(&minha_lista, 'C');
+    inserirFim(&minha_lista, 'Z');
+    inserirFim(&minha_lista, 'W');
+    inserirPosicao(&minha_lista, 'H', 1);
     imprimir(&minha_lista);
     cout<<tamanho(&minha_lista)<<endl;
+    
+    
+    //estaVazia(&minha_lista);
+    //removerInicio(&minha_lista);
+    removerFim(&minha_lista);
+    //removerPosicao(&minha_lista, 2);
+    //removerElemento(&minha_lista, 'A');
+    imprimir(&minha_lista);
+    
+    cout<<tamanho(&minha_lista)<<endl;
+
+    
 
     return 0;
 }
