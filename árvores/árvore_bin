@@ -1,0 +1,83 @@
+
+#include <iostream>
+using namespace std;
+
+struct No {
+	int info;
+	No *esquerda, *direita;
+};
+
+
+No* criaArvore() {
+	No *raiz  = NULL;
+	return raiz;
+}
+
+void preOrdem (No *raiz) { // r - e - d
+
+	if (raiz != NULL) {
+		cout<<"Dado "<<raiz->info<<endl;
+		preOrdem(raiz->esquerda);
+		preOrdem(raiz->direita);
+	}
+}
+
+void emOrdem (No *raiz) { // e - r - d
+
+	if (raiz != NULL) {		
+		preOrdem(raiz->esquerda);
+		cout<<"Dado "<<raiz->info<<endl;
+		preOrdem(raiz->direita);
+	}
+}
+
+void posOrdem (No *raiz) { // e - d - r
+
+	if (raiz != NULL) {		
+		preOrdem(raiz->esquerda);
+		preOrdem(raiz->direita);
+		cout<<"Dado "<<raiz->info<<endl;
+	}
+}
+
+void insere (No *&raiz, int x){	
+	
+	if (raiz==NULL) {//se árvore está vazia
+		raiz = new No; //o ponteiro raiz recebe o endereço de um novo Nó.
+		raiz->info = x;
+		raiz->esquerda=NULL;
+		raiz->direita=NULL;
+
+		
+	} else {
+		if (x < raiz->info) {
+			cout<<"--esquerda\n";
+			insere (raiz->esquerda, x); //chamada recursiva
+		}
+		else {
+			cout<<"--direita\n";
+			insere (raiz->direita, x); //chamada recursiva
+		}
+	}	
+}
+
+int main () {
+	
+	No *arvore= criaArvore();
+	
+	insere(arvore,7);
+	insere (arvore, 5);
+	insere(arvore,10);
+	insere(arvore, 6);
+	insere(arvore, 3);
+	cout<<endl;
+	cout<<"Percurso pré-ordem:"<<endl;
+	preOrdem(arvore);
+	cout<<endl;
+	cout<<"Percurso em-ordem:"<<endl;
+	emOrdem(arvore);
+	cout<<endl;
+	cout<<"Percurso pós-ordem:"<<endl;
+	posOrdem(arvore);
+
+}
