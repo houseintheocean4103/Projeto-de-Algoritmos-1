@@ -41,20 +41,24 @@ void desempilhar( Pilha *minhapilha, int &sair){
 int main(){
 
     Pilha teste;
+    int tirar, vetor[5];
 
-    int cont_odd = 0, cont_even = 0, tirar;
+    for(int j = 0; j < 5; j++){
+        cin>>vetor[j];
+    }
 
     cria_pilha(&teste);
 
-    for(int i = 0; i < 15; i++){        
-        if(i % 4 == 0 and i % 6 == 0){
-            empilhar(&teste, i);
+    for(int i = 0; i < 5; i++){        
+        if(vetor[i] % 12 == 0){
+            empilhar(&teste, vetor[i]);
         } 
-        if(i % 3 == 0 and not (i % 4 == 0 and i % 6 == 0)){
+        if(vetor[i] % 3 == 0 and vetor[i] % 12 != 0){
             desempilhar(&teste, tirar);
+            empilhar(&teste, vetor[i]);
         }
     }
-
+    cout<<"\n"<<"Apos processamento: "<<endl;
     imprimir(&teste);
 }
 
