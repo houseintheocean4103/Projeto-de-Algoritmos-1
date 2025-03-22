@@ -69,24 +69,21 @@ bool sair(Fila *minhafila, char &saida){
     }
 }
 
+
 void crescente(Fila *minhafila){
 
     if(not esta_vazia(minhafila)){
         no *aux = minhafila->inicio;
         int maior = aux->valor, cont = 0;
 
-        while(aux->prox != NULL){
-        
-            if(aux->prox->valor > maior){
-                cont++;
-                maior = aux->prox->valor;
-            }
+        while(aux->prox != NULL and aux->prox->valor > maior){           
+            maior = aux->prox->valor;            
             aux = aux->prox;
         }
-        if(cont == tamanho(minhafila) - 1){
-            cout<<"A fila está em ordem crescente"<<endl;
+        if(aux->prox == NULL){
+            cout<<"A fila esta em ordem crescente"<<endl;
         } else {
-            cout<<"A fila não está em ordem crescente"<<endl;
+            cout<<"A fila nao esta em ordem crescente"<<endl;
         }
     } else {
         cout<<"Está vazia"<<endl;
@@ -96,10 +93,11 @@ void crescente(Fila *minhafila){
 int main(){
 
     Fila teste;
-    string palavra = "23456";
     char saiu;
 
     cria_fila(&teste);
+
+    //enfileirar(&teste, 8);
 
     for(int i = 0;i < 6;i++){
         enfileirar(&teste, i);
